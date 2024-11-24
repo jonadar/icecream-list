@@ -1,0 +1,90 @@
+@property --top-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgb(31, 255, 31);
+}
+
+.ice-cream-top {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    margin: 18px;
+    top: 18px;
+
+    background-color: var(--top-color);
+    box-shadow:
+        0 0 0 8px color-mix(in srgb, var(--top-color) 88%, black),
+        0 0 0 16px var(--top-color),
+        0 0 0 18px color-mix(in srgb, var(--top-color) 88%, black);
+    border: 2px solid color-mix(in srgb, var(--top-color) 70%, black);
+
+    display: inline-block;
+}
+
+.ice-cream-list-container {
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.ice-cream-add-btn {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+
+    background-color: rgb(186, 186, 186);
+    color: white;
+
+    font-size: 5rem;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 100px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.new-ice-cream-form {
+    display: flex;
+    flex-direction: column;
+
+    & > div{
+        display: flex;
+        justify-content: space-between;
+    }   
+
+    input[type=color] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: 4px solid black;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        overflow: hidden;
+
+        /* Custom styling for the color input */
+        &::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        &::-webkit-color-swatch {
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Firefox-specific styling */
+        &::-moz-color-swatch {
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
