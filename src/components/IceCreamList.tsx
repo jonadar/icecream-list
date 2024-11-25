@@ -1,4 +1,4 @@
-import { ChangeEvent, FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import { IceCream } from "../consts/types";
 import IceCreamItem from "./IceCreamItem";
 import "../css/iceCreamList.scss";
