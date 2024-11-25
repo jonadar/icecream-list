@@ -1,8 +1,12 @@
-import './App.css';
-import { FunctionComponent } from 'react';
-import IceCreamList from './components/IceCreamList';
+import { FunctionComponent, useState } from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+
 import { IceCream } from './consts/types';
+import IceCreamList from './components/IceCreamList';
+import NewIceCream from './components/NewIceCream';
 import Modal from './components/Modal';
+
+import './App.scss';
 
 
 const list: IceCream[] = [{
@@ -20,10 +24,22 @@ const list: IceCream[] = [{
   color: "#00FFFF"
 }]
 
+
 const App: FunctionComponent = () => {
+  const [iceCreamList, setIceCreamList] = useState<IceCream[]>(list || []);
+
+  const addIceCream = (newItem: IceCream) => {
+    setIceCreamList([...iceCreamList, newItem]);
+  }
+
   return (
     <div className="App">
-      <IceCreamList items={list}></IceCreamList>
+      <HashRouter>
+        <Routes>
+          <Route path='/' element={<IceCreamList iceCreamList={iceCreamList} />} />
+          <Route path='/add' element={<NewIceCream onAdd={addIceCream} />} />
+        </Routes>
+      </HashRouter>
       <Modal />
     </div>
   );

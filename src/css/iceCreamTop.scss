@@ -1,0 +1,22 @@
+@property --top-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rgb(31, 255, 31);
+}
+
+.ice-cream-top {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    margin: 18px;
+    top: 18px;
+
+    background-color: var(--top-color);
+    box-shadow:
+        0 0 0 8px color-mix(in srgb, var(--top-color) 88%, black),
+        0 0 0 16px var(--top-color),
+        0 0 0 18px color-mix(in srgb, var(--top-color) 88%, black);
+    border: 2px solid color-mix(in srgb, var(--top-color) 70%, black);
+
+    display: inline-block;
+}
