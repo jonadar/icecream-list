@@ -5,14 +5,15 @@ import "../css/iceCreamTop.scss";
 
 interface IceCreamItemProps {
     item: IceCream;
+    onClick?: () => void;
 }
 
-const IceCreamItem: FunctionComponent<IceCreamItemProps> = ({ item }) => {
+const IceCreamItem: FunctionComponent<IceCreamItemProps> = ({ item, onClick = () => {} }) => {
 
     const colorStyle = { "--top-color": item.color } as React.CSSProperties;
 
     return (
-        <div className="ice-cream-top" style={colorStyle}></div>
+        <div {...{onClick}} className="ice-cream-top" style={colorStyle}></div>
     );
 }
 

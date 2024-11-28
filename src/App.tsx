@@ -4,7 +4,6 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { IceCream } from './consts/types';
 import IceCreamList from './components/IceCreamList';
 import NewIceCream from './components/NewIceCream';
-import Modal from './components/Modal';
 
 import './App.scss';
 
@@ -24,7 +23,6 @@ const list: IceCream[] = [{
   color: "#00FFFF"
 }]
 
-
 const App: FunctionComponent = () => {
   const [iceCreamList, setIceCreamList] = useState<IceCream[]>(list || []);
 
@@ -32,15 +30,26 @@ const App: FunctionComponent = () => {
     setIceCreamList([...iceCreamList, newItem]);
   }
 
+  const updateIceCream = (index: number, newItem: IceCream) => {
+    const updatedList = [...iceCreamList]; // Clone the array
+    updatedList.splice(index, 1, newItem); // Replace the item at the given index
+    setIceCreamList(updatedList); // Update state
+  }
+
+  const removeIceCream = (index: number) => {
+    const updatedList = [...iceCreamList]; // Clone the array
+    updatedList.splice(index, 1); // Remove the item at the given index
+    setIceCreamList(updatedList); // Update state
+  }
+
   return (
     <div className="App">
       <HashRouter>
         <Routes>
-          <Route path='/' element={<IceCreamList iceCreamList={iceCreamList} />} />
+          <Route path='/' element={<IceCreamList iceCreamList={iceCreamList} updateIceCream={updateIceCream} removeIceCream={removeIceCream} />} />
           <Route path='/add' element={<NewIceCream onAdd={addIceCream} />} />
         </Routes>
       </HashRouter>
-      <Modal />
     </div>
   );
 }
