@@ -18,7 +18,6 @@
       "sizes": "512x512"
     }
   ],
-  "homepage": "https://jonadar.github.io/icecream-list",
   "start_url": "https://jonadar.github.io/icecream-list",
   "display": "standalone",
   "theme_color": "#000000",
