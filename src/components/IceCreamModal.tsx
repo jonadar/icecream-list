@@ -35,7 +35,7 @@ const IceCreamModal: FunctionComponent<ModalProps> = ({ data, isOpen = true, clo
 
         console.log("update cream")
         event.preventDefault();
-        if (data?.index == undefined) {
+        if (data?.index === undefined) {
             return;
         }
 
@@ -45,10 +45,10 @@ const IceCreamModal: FunctionComponent<ModalProps> = ({ data, isOpen = true, clo
     }
 
     const handleRemoveIceCream = (event: any) => {
-        if (data?.index == undefined) {
+        if (data?.index === undefined) {
             return;
         }
-        
+
         removeIceCream(data?.index);
 
         close();

@@ -6,6 +6,7 @@ import IceCreamItem from "./IceCreamItem";
 import IceCreamModal from "./IceCreamModal";
 
 import "../css/iceCreamList.scss";
+import { useLocalStorageState } from "../consts/hooks";
 
 
 interface IceCreamListProps {
@@ -17,7 +18,7 @@ interface IceCreamListProps {
 const IceCreamList: FunctionComponent<IceCreamListProps> = ({ iceCreamList, updateIceCream, removeIceCream }) => {
 
     const [modalOpen, setModalOpen] = useState<boolean>(false);
-    const [iceCreamItem, setIceCreamItem] = useState<IceCream & {index: number}>();
+    const [iceCreamItem, setIceCreamItem] = useState<IceCream & { index: number }>();
 
     return (
         <div className="ice-cream-list-container">
@@ -25,7 +26,7 @@ const IceCreamList: FunctionComponent<IceCreamListProps> = ({ iceCreamList, upda
                 iceCreamList.length > 0 &&
                 iceCreamList.map((item, index) => <IceCreamItem onClick={
                     () => {
-                        setIceCreamItem({...item, index});
+                        setIceCreamItem({ ...item, index });
                         setModalOpen(true);
                     }
                 } item={item} key={item.title} />)

@@ -6,6 +6,7 @@ import IceCreamList from './components/IceCreamList';
 import NewIceCream from './components/NewIceCream';
 
 import './App.scss';
+import { useLocalStorageState } from './consts/hooks';
 
 
 const list: IceCream[] = [{
@@ -24,7 +25,7 @@ const list: IceCream[] = [{
 }]
 
 const App: FunctionComponent = () => {
-  const [iceCreamList, setIceCreamList] = useState<IceCream[]>(list || []);
+  const [iceCreamList, setIceCreamList] = useLocalStorageState<IceCream[]>("local-list", list || []);
 
   const addIceCream = (newItem: IceCream) => {
     setIceCreamList([...iceCreamList, newItem]);
