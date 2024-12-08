@@ -32,9 +32,8 @@ const IceCreamModal: FunctionComponent<ModalProps> = ({ data, isOpen = true, clo
     };
 
     const handleUpdateIceCream = (event: React.FormEvent<HTMLFormElement>) => {
-
-        console.log("update cream")
         event.preventDefault();
+
         if (data?.index === undefined) {
             return;
         }
@@ -61,8 +60,8 @@ const IceCreamModal: FunctionComponent<ModalProps> = ({ data, isOpen = true, clo
     }, [data])
 
     return (
-        <div className="modal-container" onClick={close} style={{ display: isOpen ? "flex" : "none" }}>
-            <div className="modal-content" onClick={(e) => {
+        <div className="modal-container" onMouseDown={close} style={{ display: isOpen ? "flex" : "none" }}>
+            <div className="modal-content" onMouseDown={(e) => {
                 e.stopPropagation(); // prevent modal from closing when clicking inside the content
             }}>
                 <div>

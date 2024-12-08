@@ -40,7 +40,7 @@ const NewIceCream: FunctionComponent<NewIceCreamProps> = ({ onAdd }) => {
     return (
         <form className="new-ice-cream-form" method="none" onSubmit={handleAddIceCream}>
             <div>
-                <button onClick={goBack}>back</button>
+                <button type="button" onClick={goBack}>back</button>
             </div>
             <div>
                 <label htmlFor="title">Title</label>
